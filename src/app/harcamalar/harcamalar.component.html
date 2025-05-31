@@ -1,0 +1,36 @@
+<div class="header">
+    <h2>Bugünkü Harcamalar</h2>
+    <button mat-raised-button color="primary" (click)="addExpense()">Harcama Ekle</button>
+  </div>
+  
+  <div class="table-container">
+    <table mat-table [dataSource]="expenses" class="modern-table mat-elevation-z8">
+      <!-- ID Sütunu -->
+      <ng-container matColumnDef="id" >
+        <th mat-header-cell *matHeaderCellDef > ID </th>
+        <td mat-cell *matCellDef="let expense"> {{ expense.id }} </td>
+      </ng-container>
+      
+      <!-- Harcama Tarihi Sütunu -->
+      <ng-container matColumnDef="expenseDate">
+        <th mat-header-cell *matHeaderCellDef> Tarih </th>
+        <td mat-cell *matCellDef="let expense"> {{ expense.expenseDate | date:'dd/MM/yyyy HH:mm' }} </td>
+      </ng-container>
+      
+      <!-- Tutar Sütunu -->
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef> Tutar </th>
+        <td mat-cell *matCellDef="let expense"> {{ expense.amount | currency:'AZN':'symbol':'1.2-2' }} </td>
+      </ng-container>
+      
+      <!-- Açıklama Sütunu -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Açıklama </th>
+        <td mat-cell *matCellDef="let expense"> {{ expense.description }} </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  

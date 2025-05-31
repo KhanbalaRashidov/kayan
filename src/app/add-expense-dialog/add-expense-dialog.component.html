@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Yeni Harcama Ekle</h2>
+<form [formGroup]="expenseForm" class="expense-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Tutar</mat-label>
+    <input matInput type="number" formControlName="amount">
+  </mat-form-field>
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Açıklama</mat-label>
+    <input matInput formControlName="description">
+  </mat-form-field>
+  
+  <div class="dialog-actions">
+    <button mat-button (click)="close()">İptal</button>
+    <button mat-raised-button color="primary" (click)="save()" [disabled]="expenseForm.invalid">
+      Yadda Saxla
+    </button>
+  </div>
+</form>

@@ -1,0 +1,18 @@
+.sale-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.stock-info {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}

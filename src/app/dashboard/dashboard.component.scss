@@ -1,0 +1,27 @@
+.sidenav-container {
+    height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .dark-mode {
+    background-color: #424242;
+    color: #fff;
+  }
+  
+  .sidenav {
+    width: 240px;
+  }
+  
+  .sidenav-toolbar {
+    font-size: 1.2rem;
+    justify-content: center;
+  }
+  
+  .content {
+    padding: 16px;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  

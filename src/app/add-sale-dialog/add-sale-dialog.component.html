@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Yeni Satış Ekle</h2>
+<form [formGroup]="saleForm" class="sale-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Ürün Seçiniz</mat-label>
+    <mat-select formControlName="productId">
+      <mat-option *ngFor="let product of products" [value]="product.id">
+        {{ product.name }} (Stok: {{ product.stock }})
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="stock-info">{{ stockMessage }}</div>
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Miktar</mat-label>
+    <input matInput type="number" formControlName="quantity">
+  </mat-form-field>
+  
+  <div class="dialog-actions">
+    <button mat-button (click)="close()">İptal</button>
+    <button mat-raised-button color="primary" (click)="save()" [disabled]="saleForm.invalid">
+      Yadda Saxla
+    </button>
+  </div>
+</form>

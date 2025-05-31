@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Yeni Çalışan Ekle</h2>
+<form [formGroup]="workerForm" class="worker-form">
+  <mat-form-field appearance="fill">
+    <mat-label>İsim</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Maaş</mat-label>
+    <input matInput type="number" formControlName="salary">
+  </mat-form-field>
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Ödeme Tarihi</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="paymentDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  
+  <div class="dialog-actions">
+    <button mat-button (click)="close()">İptal</button>
+    <button mat-raised-button color="primary" (click)="save()" [disabled]="workerForm.invalid">
+      Yadda Saxla
+    </button>
+  </div>
+</form>

@@ -1,0 +1,99 @@
+// Renk paleti ve tipografi ayarları
+$border-color: #ccc;
+$header-bg: #f5f5f5;
+$cell-padding: 16px;
+$text-color: #424242;
+$font-family: 'Roboto', sans-serif;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $header-bg;
+  padding: 16px;
+  border-radius: 4px;
+  margin: 16px; // Header etrafında boşluk
+  h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: $text-color;
+    font-family: $font-family;
+  }
+  button {
+    font-family: $font-family;
+  }
+}
+
+.table-container {
+  background-color: #fff;
+  border: 1px solid $border-color;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 0 16px 16px 16px; // Üst:0, Sağ:16px, Alt:16px, Sol:16px
+  padding-right: 16px;
+}
+
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: $font-family;
+}
+
+.mat-header-cell {
+  padding: $cell-padding;
+  background-color: $header-bg;
+  font-weight: 600;
+  color: $text-color;
+  border-bottom: 2px solid $border-color;
+  text-align: left;
+}
+
+.mat-cell {
+  padding: $cell-padding;
+  border-bottom: 1px solid lighten($border-color, 20%);
+  text-align: left;
+  color: $text-color;
+  vertical-align: middle;
+}
+
+/* Actions sütunu için özel ayarlar */
+.actions-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  min-width: 100px;
+  border-bottom: 1px solid lighten($border-color, 20%);
+  
+  /* Butonların altına da çizgi ekle */
+  button[mat-icon-button] {
+    border-bottom: 1px solid lighten($border-color, 20%);
+  }
+}
+
+button[mat-icon-button] {
+  transition: background-color 0.3s ease;
+  padding: 8px;
+}
+
+button[mat-icon-button]:hover {
+  background-color: rgba(25, 118, 210, 0.1);
+}
+
+button[mat-icon-button][color="warn"] {
+  mat-icon {
+    color: #f44336;
+  }
+}
+
+/* Responsive ayarlar */
+@media (max-width: 600px) {
+  .mat-header-cell,
+  .mat-cell {
+    padding: 12px;
+    font-size: 13px;
+  }
+  .header h2 {
+    font-size: 1.5rem;
+  }
+}

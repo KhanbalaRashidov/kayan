@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container" [class.dark-mode]="isDarkMode">
+    <mat-sidenav #drawer class="sidenav" mode="side" opened>
+      <mat-toolbar color="primary" class="sidenav-toolbar">
+        Menu
+      </mat-toolbar>
+      <mat-nav-list>
+        <!-- Child route olduğu için göreceli routerLink kullanıyoruz -->
+        <a mat-list-item routerLink="isciler">İşçiler</a>
+        <a mat-list-item routerLink="urunler">Ürünler</a>
+        <a mat-list-item routerLink="/dashboard/gunluk-satislar">Günlük Satışlar</a>
+        <a mat-list-item routerLink="/dashboard/harcamalar">Harcamalar</a>
+        <a mat-list-item routerLink="/dashboard/borclular">Alacaklar</a>
+        <a mat-list-item routerLink="/dashboard/kullanicilar">Kullanıcılar</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button mat-icon-button (click)="drawer.toggle()" aria-label="Toggle sidenav">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Dashboard</span>
+        <span class="spacer"></span>
+        <button mat-icon-button (click)="toggleDarkMode()" aria-label="Toggle dark mode">
+          <mat-icon>{{ isDarkMode ? 'brightness_7' : 'brightness_4' }}</mat-icon>
+        </button>
+        <button mat-button (click)="logout()">Logout</button>
+      </mat-toolbar>
+      <!-- Child route'lar burada render edilecek -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
